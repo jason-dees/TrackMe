@@ -16,6 +16,15 @@
 		A32C2E96292ECF9000421ED0 /* TrackMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C2E95292ECF9000421ED0 /* TrackMeTests.swift */; };
 		A32C2EA0292ECF9000421ED0 /* TrackMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C2E9F292ECF9000421ED0 /* TrackMeUITests.swift */; };
 		A32C2EA2292ECF9000421ED0 /* TrackMeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C2EA1292ECF9000421ED0 /* TrackMeUITestsLaunchTests.swift */; };
+		A32C2EAF292ED19D00421ED0 /* MealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C2EAE292ED19C00421ED0 /* MealView.swift */; };
+		A32C2EB2292FA91A00421ED0 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C2EB1292FA91A00421ED0 /* Food.swift */; };
+		A32C2EB4292FF1DD00421ED0 /* FoodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C2EB3292FF1DD00421ED0 /* FoodTests.swift */; };
+		A32C2EB629312D3D00421ED0 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C2EB529312D3D00421ED0 /* Day.swift */; };
+		A32C2EB829323B9F00421ED0 /* DayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C2EB729323B9F00421ED0 /* DayTests.swift */; };
+		A32C2EBA2932451500421ED0 /* TestFoods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C2EB92932451500421ED0 /* TestFoods.swift */; };
+		A32C2EBD2939982E00421ED0 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C2EBC2939982E00421ED0 /* DayView.swift */; };
+		A32C2EBF29399DBD00421ED0 /* DayDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C2EBE29399DBD00421ED0 /* DayDataService.swift */; };
+		A32C2EC229399F3D00421ED0 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C2EC129399F3D00421ED0 /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +58,15 @@
 		A32C2E9B292ECF9000421ED0 /* TrackMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrackMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A32C2E9F292ECF9000421ED0 /* TrackMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackMeUITests.swift; sourceTree = "<group>"; };
 		A32C2EA1292ECF9000421ED0 /* TrackMeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackMeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A32C2EAE292ED19C00421ED0 /* MealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealView.swift; sourceTree = "<group>"; };
+		A32C2EB1292FA91A00421ED0 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		A32C2EB3292FF1DD00421ED0 /* FoodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTests.swift; sourceTree = "<group>"; };
+		A32C2EB529312D3D00421ED0 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		A32C2EB729323B9F00421ED0 /* DayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTests.swift; sourceTree = "<group>"; };
+		A32C2EB92932451500421ED0 /* TestFoods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFoods.swift; sourceTree = "<group>"; };
+		A32C2EBC2939982E00421ED0 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
+		A32C2EBE29399DBD00421ED0 /* DayDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDataService.swift; sourceTree = "<group>"; };
+		A32C2EC129399F3D00421ED0 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +117,18 @@
 		A32C2E7D292ECF8F00421ED0 /* TrackMe */ = {
 			isa = PBXGroup;
 			children = (
+				A32C2EC029399F2700421ED0 /* Extensions */,
+				A32C2EBB2939955900421ED0 /* DataStorage */,
+				A32C2EB0292FA90700421ED0 /* Models */,
 				A32C2E7E292ECF8F00421ED0 /* TrackMeApp.swift */,
 				A32C2E80292ECF8F00421ED0 /* Persistence.swift */,
 				A32C2E85292ECF8F00421ED0 /* ContentView.swift */,
+				A32C2EAE292ED19C00421ED0 /* MealView.swift */,
 				A32C2E87292ECF9000421ED0 /* Assets.xcassets */,
 				A32C2E89292ECF9000421ED0 /* TrackMe.entitlements */,
 				A32C2E82292ECF8F00421ED0 /* TrackMe.xcdatamodeld */,
 				A32C2E8A292ECF9000421ED0 /* Preview Content */,
+				A32C2EBC2939982E00421ED0 /* DayView.swift */,
 			);
 			path = TrackMe;
 			sourceTree = "<group>";
@@ -122,6 +145,9 @@
 			isa = PBXGroup;
 			children = (
 				A32C2E95292ECF9000421ED0 /* TrackMeTests.swift */,
+				A32C2EB3292FF1DD00421ED0 /* FoodTests.swift */,
+				A32C2EB729323B9F00421ED0 /* DayTests.swift */,
+				A32C2EB92932451500421ED0 /* TestFoods.swift */,
 			);
 			path = TrackMeTests;
 			sourceTree = "<group>";
@@ -133,6 +159,31 @@
 				A32C2EA1292ECF9000421ED0 /* TrackMeUITestsLaunchTests.swift */,
 			);
 			path = TrackMeUITests;
+			sourceTree = "<group>";
+		};
+		A32C2EB0292FA90700421ED0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A32C2EB1292FA91A00421ED0 /* Food.swift */,
+				A32C2EB529312D3D00421ED0 /* Day.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A32C2EBB2939955900421ED0 /* DataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				A32C2EBE29399DBD00421ED0 /* DayDataService.swift */,
+			);
+			path = DataStorage;
+			sourceTree = "<group>";
+		};
+		A32C2EC029399F2700421ED0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A32C2EC129399F3D00421ED0 /* Date.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,9 +317,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A32C2E7F292ECF8F00421ED0 /* TrackMeApp.swift in Sources */,
+				A32C2EC229399F3D00421ED0 /* Date.swift in Sources */,
+				A32C2EBD2939982E00421ED0 /* DayView.swift in Sources */,
+				A32C2EBF29399DBD00421ED0 /* DayDataService.swift in Sources */,
 				A32C2E84292ECF8F00421ED0 /* TrackMe.xcdatamodeld in Sources */,
+				A32C2EB629312D3D00421ED0 /* Day.swift in Sources */,
 				A32C2E86292ECF8F00421ED0 /* ContentView.swift in Sources */,
 				A32C2E81292ECF8F00421ED0 /* Persistence.swift in Sources */,
+				A32C2EAF292ED19D00421ED0 /* MealView.swift in Sources */,
+				A32C2EB2292FA91A00421ED0 /* Food.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +333,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A32C2EB829323B9F00421ED0 /* DayTests.swift in Sources */,
+				A32C2EBA2932451500421ED0 /* TestFoods.swift in Sources */,
 				A32C2E96292ECF9000421ED0 /* TrackMeTests.swift in Sources */,
+				A32C2EB4292FF1DD00421ED0 /* FoodTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
