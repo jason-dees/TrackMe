@@ -198,6 +198,14 @@ extension Macronutrients: Equatable {
     }
 }
 
+extension Macronutrients: CustomStringConvertible {
+    public var description: String {
+        get {
+            return "I'll get you one day"
+        }
+    }
+}
+
 public enum FoodError : Error {
     case measurementNotFound
     case measurementMismatched
