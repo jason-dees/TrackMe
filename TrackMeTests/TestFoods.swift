@@ -30,6 +30,6 @@ var bread: Food {
 
 var sandwich: Recipe {
     get {
-        Recipe(name: "Lots of butter", description: "even more butter", totalQuantity: .each(5), ingredients: [butter, bread])
+        Recipe(name: "Lots of butter", longDescription: "even more butter", totalQuantity: .each(5), ingredients: [butter, bread])
     }
 }

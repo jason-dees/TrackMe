@@ -2,7 +2,7 @@
 //  DayView.swift
 //  TrackMe
 //
-//  Created by Jason Dees on 12/1/22.
+//  Created by Jason Dees on 12/12/22.
 //
 
 import SwiftUI
@@ -10,7 +10,9 @@ import SwiftUI
 struct DayView: View {
     @State var day: Day
     var body: some View {
-        NavigationView {
+        VStack{
+            Text(day.date.medium)
+                .font(.title)
             ScrollView {
                 ForEach(day.meals, id: \.self.name){ meal in
                     VStack {
@@ -54,23 +56,10 @@ struct DayView: View {
                     }.border(.black)
                 }
             }
-            .navigationTitle(day.date.medium)
-            .toolbar {
-#if os(iOS)
-                ToolbarItem(placement: .bottomBar) {
-                    EditButton()
-                }
-#endif
-                ToolbarItem(placement: .bottomBar) {
-                    Button(action: addFood) {
-                        Label("Add Food", systemImage: "plus")
-                    }
-                }
-            }
         }
     }
     
-    private func addFood() {
+    func addFood() {
         
     }
 }
@@ -83,8 +72,8 @@ struct DayView_Previews: PreviewProvider {
         let butterEdible = Edible(name: "butter", amounts: [butterMacroGrams, butterMacroTbsp, butterMacroCups])
         let breadMacroEach = Amount(measurement: .each(2), macros: Macronutrients(protein: 3, carbohydrates: 20, fat: 2, calories: 150))
         let breadEdible = Edible(name: "bread", amounts: [breadMacroEach])
-        let eatenBread = Eaten(food: Food(name: "Bread", edible: breadEdible, measurement: .each(2)))
-        let eatenButter = Eaten(food: Food(name: "Butter", edible: butterEdible, measurement: .grams(45)))
+        let eatenBread = EatenFood(food: Food(name: "Bread", edible: breadEdible, measurement: .each(2)))
+        let eatenButter = EatenFood(food: Food(name: "Butter", edible: butterEdible, measurement: .grams(45)))
         let meal = Meal(name: "Lunch", eaten: [eatenBread, eatenBread])
         let mealOne = Meal(name: "Pre-Lunch", eaten: [eatenBread, eatenButter])
         let day = Day(date: Date.now,

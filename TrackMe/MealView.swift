@@ -30,7 +30,7 @@ struct MealView_Previews: PreviewProvider {
     static var previews: some View {
         let breadMacroEach = Amount(measurement: .each(2), macros: Macronutrients(protein: 3, carbohydrates: 20, fat: 2, calories: 150))
         let breadEdible = Edible(name: "bread", amounts: [breadMacroEach])
-        let eatenBread = Eaten(food: Food(name: "Bread", edible: breadEdible, measurement: .each(2)))
+        let eatenBread = EatenFood(food: Food(name: "Bread", edible: breadEdible, measurement: .each(2)))
         let meal = Meal(name: "Lunch", eaten: [eatenBread])
         MealView(meal: meal)
     }

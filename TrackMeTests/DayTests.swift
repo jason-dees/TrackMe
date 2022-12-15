@@ -19,26 +19,26 @@ final class DayTests: XCTestCase {
     }
 
     func testEatenRecipe() throws {
-        let eaten = Eaten(recipe: sandwich)
+        let eaten = EatenFood(recipe: sandwich)
         XCTAssertEqual(eaten.name, sandwich.name)
         XCTAssertEqual(try eaten.macros, try sandwich.macros)
     }
     
     func testEatenFood() throws {
-        let eaten = Eaten(food: bread)
+        let eaten = EatenFood(food: bread)
         XCTAssertEqual(eaten.name, bread.name)
         XCTAssertEqual(try eaten.macros, try bread.macros)
     }
     
     func testMealMacros() {
-        let eatenBread = Eaten(food: bread)
+        let eatenBread = EatenFood(food: bread)
         let meal = Meal(name: "Lunch", eaten: [eatenBread])
         
         XCTAssertEqual(try meal.macros, try eatenBread.macros)
     }
     
     func testDayMacros() {
-        let eatenBread = Eaten(food: bread)
+        let eatenBread = EatenFood(food: bread)
         let meal = Meal(name: "Lunch", eaten: [eatenBread])
         
         let day = Day(date: Date.now, meals: [meal], calorieLimit: 2000)
