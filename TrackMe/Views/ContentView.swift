@@ -10,16 +10,30 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-
+    
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
-
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \StoredDay.date, ascending: true)],
+        animation: .default)
+    private var days: FetchedResults<StoredDay>
+    
     var body: some View {
         TabView {
             NavigationView {
                 List {
+                    
+                    ForEach(days) { day in
+                        NavigationLink {
+                            Text("day at \(day.date!, formatter: itemFormatter)")
+                        } label: {
+                            Text("day at \(day.date!, formatter: itemFormatter)")
+                        }
+                    }
+                    .onDelete(perform: deleteItems)
                     ForEach(items) { item in
                         NavigationLink {
                             Text("Item at \(item.timestamp!, formatter: itemFormatter)")
@@ -47,12 +61,12 @@ struct ContentView: View {
             }
         }
     }
-
+    
     private func addItem() {
         withAnimation {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
-
+            
             do {
                 try viewContext.save()
             } catch {
@@ -63,11 +77,11 @@ struct ContentView: View {
             }
         }
     }
-
+    
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { items[$0] }.forEach(viewContext.delete)
-
+            
             do {
                 try viewContext.save()
             } catch {

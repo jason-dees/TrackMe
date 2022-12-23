@@ -16,4 +16,8 @@ public struct Edible { // Item data
         self.name = name
         self.amounts = amounts
     }
+    
+    public init() {
+        self.init(name: "Uknown Edible", amounts: [])
+    }
 }

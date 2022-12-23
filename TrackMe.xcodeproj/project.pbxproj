@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A32C2E7F292ECF8F00421ED0 /* TrackMeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C2E7E292ECF8F00421ED0 /* TrackMeApp.swift */; };
-		A32C2E81292ECF8F00421ED0 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C2E80292ECF8F00421ED0 /* Persistence.swift */; };
+		A32C2E81292ECF8F00421ED0 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C2E80292ECF8F00421ED0 /* PersistenceController.swift */; };
 		A32C2E84292ECF8F00421ED0 /* TrackMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A32C2E82292ECF8F00421ED0 /* TrackMe.xcdatamodeld */; };
 		A32C2E86292ECF8F00421ED0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C2E85292ECF8F00421ED0 /* ContentView.swift */; };
 		A32C2E88292ECF9000421ED0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A32C2E87292ECF9000421ED0 /* Assets.xcassets */; };
@@ -32,6 +32,17 @@
 		A3E6A2FE29481B2400E0AA69 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6A2FD29481B2400E0AA69 /* Meal.swift */; };
 		A3E6A30029481B3600E0AA69 /* EatenFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6A2FF29481B3600E0AA69 /* EatenFood.swift */; };
 		A3E6A30329495A2F00E0AA69 /* StoredMacronutrients+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6A30229495A2F00E0AA69 /* StoredMacronutrients+Extensions.swift */; };
+		A3EBCB09294C024100893D36 /* StoredMeasurement+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EBCB08294C024100893D36 /* StoredMeasurement+Extensions.swift */; };
+		A3EBCB0B294C029000893D36 /* StoredAmount+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EBCB0A294C029000893D36 /* StoredAmount+Extensions.swift */; };
+		A3EBCB0D294C038300893D36 /* StoredEdible+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EBCB0C294C038300893D36 /* StoredEdible+Extensions.swift */; };
+		A3EBCB0F294C05BF00893D36 /* StoredEatenFood+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EBCB0E294C05BF00893D36 /* StoredEatenFood+Extensions.swift */; };
+		A3EBCB11294C066200893D36 /* StoredFood+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EBCB10294C066200893D36 /* StoredFood+Extensions.swift */; };
+		A3EBCB13294C076200893D36 /* StoredMeal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EBCB12294C076200893D36 /* StoredMeal+Extensions.swift */; };
+		A3EBCB15294C07CA00893D36 /* StoredDay+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EBCB14294C07CA00893D36 /* StoredDay+Extensions.swift */; };
+		A3EBCB18294C111B00893D36 /* DayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EBCB17294C111B00893D36 /* DayViewModel.swift */; };
+		A3EBCB1F2955FCC000893D36 /* PersistenceController+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EBCB1E2955FCC000893D36 /* PersistenceController+Preview.swift */; };
+		A3EBCB212955FDF000893D36 /* DayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EBCB202955FDF000893D36 /* DayController.swift */; };
+		A3EBCB232956085700893D36 /* StoredRecipe+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EBCB222956085700893D36 /* StoredRecipe+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +65,7 @@
 /* Begin PBXFileReference section */
 		A32C2E7B292ECF8F00421ED0 /* TrackMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A32C2E7E292ECF8F00421ED0 /* TrackMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackMeApp.swift; sourceTree = "<group>"; };
-		A32C2E80292ECF8F00421ED0 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		A32C2E80292ECF8F00421ED0 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		A32C2E83292ECF8F00421ED0 /* TrackMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrackMe.xcdatamodel; sourceTree = "<group>"; };
 		A32C2E85292ECF8F00421ED0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A32C2E87292ECF9000421ED0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,6 +92,17 @@
 		A3E6A2FD29481B2400E0AA69 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		A3E6A2FF29481B3600E0AA69 /* EatenFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatenFood.swift; sourceTree = "<group>"; };
 		A3E6A30229495A2F00E0AA69 /* StoredMacronutrients+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoredMacronutrients+Extensions.swift"; sourceTree = "<group>"; };
+		A3EBCB08294C024100893D36 /* StoredMeasurement+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoredMeasurement+Extensions.swift"; sourceTree = "<group>"; };
+		A3EBCB0A294C029000893D36 /* StoredAmount+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoredAmount+Extensions.swift"; sourceTree = "<group>"; };
+		A3EBCB0C294C038300893D36 /* StoredEdible+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoredEdible+Extensions.swift"; sourceTree = "<group>"; };
+		A3EBCB0E294C05BF00893D36 /* StoredEatenFood+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoredEatenFood+Extensions.swift"; sourceTree = "<group>"; };
+		A3EBCB10294C066200893D36 /* StoredFood+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoredFood+Extensions.swift"; sourceTree = "<group>"; };
+		A3EBCB12294C076200893D36 /* StoredMeal+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoredMeal+Extensions.swift"; sourceTree = "<group>"; };
+		A3EBCB14294C07CA00893D36 /* StoredDay+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoredDay+Extensions.swift"; sourceTree = "<group>"; };
+		A3EBCB17294C111B00893D36 /* DayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewModel.swift; sourceTree = "<group>"; };
+		A3EBCB1E2955FCC000893D36 /* PersistenceController+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistenceController+Preview.swift"; sourceTree = "<group>"; };
+		A3EBCB202955FDF000893D36 /* DayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayController.swift; sourceTree = "<group>"; };
+		A3EBCB222956085700893D36 /* StoredRecipe+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoredRecipe+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,18 +153,16 @@
 		A32C2E7D292ECF8F00421ED0 /* TrackMe */ = {
 			isa = PBXGroup;
 			children = (
+				A3EBCB1C2955FC3800893D36 /* Views */,
+				A3EBCB192955FBBA00893D36 /* Controllers */,
+				A3EBCB16294C110C00893D36 /* ViewModels */,
+				A32C2E87292ECF9000421ED0 /* Assets.xcassets */,
 				A32C2EC029399F2700421ED0 /* Extensions */,
 				A32C2EB0292FA90700421ED0 /* Models */,
-				A32C2E7E292ECF8F00421ED0 /* TrackMeApp.swift */,
-				A32C2E80292ECF8F00421ED0 /* Persistence.swift */,
-				A32C2E85292ECF8F00421ED0 /* ContentView.swift */,
-				A32C2EAE292ED19C00421ED0 /* MealView.swift */,
-				A32C2E87292ECF9000421ED0 /* Assets.xcassets */,
+				A32C2E8A292ECF9000421ED0 /* Preview Content */,
 				A32C2E89292ECF9000421ED0 /* TrackMe.entitlements */,
 				A32C2E82292ECF8F00421ED0 /* TrackMe.xcdatamodeld */,
-				A32C2E8A292ECF9000421ED0 /* Preview Content */,
-				A32C2EBC2939982E00421ED0 /* MainTabView.swift */,
-				A32C2EC5294807E300421ED0 /* DayView.swift */,
+				A32C2E7E292ECF8F00421ED0 /* TrackMeApp.swift */,
 			);
 			path = TrackMe;
 			sourceTree = "<group>";
@@ -203,8 +223,53 @@
 			isa = PBXGroup;
 			children = (
 				A3E6A30229495A2F00E0AA69 /* StoredMacronutrients+Extensions.swift */,
+				A3EBCB08294C024100893D36 /* StoredMeasurement+Extensions.swift */,
+				A3EBCB0A294C029000893D36 /* StoredAmount+Extensions.swift */,
+				A3EBCB0C294C038300893D36 /* StoredEdible+Extensions.swift */,
+				A3EBCB0E294C05BF00893D36 /* StoredEatenFood+Extensions.swift */,
+				A3EBCB10294C066200893D36 /* StoredFood+Extensions.swift */,
+				A3EBCB12294C076200893D36 /* StoredMeal+Extensions.swift */,
+				A3EBCB14294C07CA00893D36 /* StoredDay+Extensions.swift */,
+				A3EBCB222956085700893D36 /* StoredRecipe+Extensions.swift */,
 			);
 			path = Stored;
+			sourceTree = "<group>";
+		};
+		A3EBCB16294C110C00893D36 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A3EBCB17294C111B00893D36 /* DayViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A3EBCB192955FBBA00893D36 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A3EBCB1D2955FCA500893D36 /* Extensions */,
+				A32C2E80292ECF8F00421ED0 /* PersistenceController.swift */,
+				A3EBCB202955FDF000893D36 /* DayController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A3EBCB1C2955FC3800893D36 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A32C2E85292ECF8F00421ED0 /* ContentView.swift */,
+				A32C2EC5294807E300421ED0 /* DayView.swift */,
+				A32C2EBC2939982E00421ED0 /* MainTabView.swift */,
+				A32C2EAE292ED19C00421ED0 /* MealView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A3EBCB1D2955FCA500893D36 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A3EBCB1E2955FCC000893D36 /* PersistenceController+Preview.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,22 +403,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				A32C2E7F292ECF8F00421ED0 /* TrackMeApp.swift in Sources */,
+				A3EBCB0B294C029000893D36 /* StoredAmount+Extensions.swift in Sources */,
 				A3E6A2F829481AB500E0AA69 /* Edible.swift in Sources */,
+				A3EBCB212955FDF000893D36 /* DayController.swift in Sources */,
 				A32C2EC6294807E300421ED0 /* DayView.swift in Sources */,
+				A3EBCB1F2955FCC000893D36 /* PersistenceController+Preview.swift in Sources */,
 				A3E6A2FA29481AE200E0AA69 /* Amount.swift in Sources */,
 				A3E6A2FE29481B2400E0AA69 /* Meal.swift in Sources */,
+				A3EBCB13294C076200893D36 /* StoredMeal+Extensions.swift in Sources */,
 				A32C2EC229399F3D00421ED0 /* Date.swift in Sources */,
 				A32C2EBD2939982E00421ED0 /* MainTabView.swift in Sources */,
+				A3EBCB11294C066200893D36 /* StoredFood+Extensions.swift in Sources */,
+				A3EBCB232956085700893D36 /* StoredRecipe+Extensions.swift in Sources */,
+				A3EBCB0F294C05BF00893D36 /* StoredEatenFood+Extensions.swift in Sources */,
 				A32C2E84292ECF8F00421ED0 /* TrackMe.xcdatamodeld in Sources */,
+				A3EBCB0D294C038300893D36 /* StoredEdible+Extensions.swift in Sources */,
 				A32C2EB629312D3D00421ED0 /* Day.swift in Sources */,
 				A32C2E86292ECF8F00421ED0 /* ContentView.swift in Sources */,
-				A32C2E81292ECF8F00421ED0 /* Persistence.swift in Sources */,
+				A32C2E81292ECF8F00421ED0 /* PersistenceController.swift in Sources */,
 				A3E6A30029481B3600E0AA69 /* EatenFood.swift in Sources */,
+				A3EBCB18294C111B00893D36 /* DayViewModel.swift in Sources */,
 				A3E6A30329495A2F00E0AA69 /* StoredMacronutrients+Extensions.swift in Sources */,
 				A32C2EAF292ED19D00421ED0 /* MealView.swift in Sources */,
 				A3E6A2FC29481B0300E0AA69 /* Macronutrients.swift in Sources */,
 				A32C2EB2292FA91A00421ED0 /* Food.swift in Sources */,
 				A3E6A2F429481A8B00E0AA69 /* Recipe.swift in Sources */,
+				A3EBCB09294C024100893D36 /* StoredMeasurement+Extensions.swift in Sources */,
+				A3EBCB15294C07CA00893D36 /* StoredDay+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,8 +599,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -561,8 +636,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";

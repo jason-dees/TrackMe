@@ -19,6 +19,10 @@ public struct Macronutrients {
         self.fat = fat
         self.calories = calories
     }
+    
+    public init() {
+        self.init(protein: -1.0, carbohydrates: -1.0, fat: -1.0, calories: -1)
+    }
 }
 extension Macronutrients: Equatable {
     public static func ==(lhs: Macronutrients, rhs: Macronutrients) -> Bool {

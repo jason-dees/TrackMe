@@ -18,6 +18,10 @@ public struct Day {
         self.meals = meals
         self.calorieLimit = calorieLimit
     }
+    
+    public init() {
+        self.init(date: Date.now, meals: [], calorieLimit: -1)
+    }
 }
 
 extension Day {

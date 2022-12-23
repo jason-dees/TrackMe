@@ -46,3 +46,9 @@ extension EatenFood {
         }
     }
 }
+
+extension EatenFood {
+    public init() {
+        self.init(food: Food())
+    }
+}

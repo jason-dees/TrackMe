@@ -31,6 +31,13 @@ extension Food {
             return baseAmount.macros * percentOfBase
         }
     }
+    
+    public init() {
+        self.init(name: "Unknown Food",
+                  longDescription: "Food was not found so this default value was created",
+                  edible: Edible(),
+                  measurement: Measurement.defaultValue)
+    }
 }
 
 public enum FoodError : Error {

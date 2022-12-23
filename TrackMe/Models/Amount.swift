@@ -49,6 +49,12 @@ extension Measurement { // a measurement has macros, macros don't have a measure
             return amount
         }
     }
+    
+    public static var defaultValue: Measurement {
+        get {
+            .each(-1.0)
+        }
+    }
 }
 
 extension Measurement: Equatable {
