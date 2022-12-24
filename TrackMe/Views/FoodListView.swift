@@ -21,8 +21,10 @@ struct FoodListView: View {
                         .fill(.white)
                 }
             List {
-                
-            }.listStyle(.plain)
+                ForEach(viewModel.foods, id: \.id) { food in
+                    Text(food.name)
+                }
+            }.listStyle(.grouped)
         }
     }
 }

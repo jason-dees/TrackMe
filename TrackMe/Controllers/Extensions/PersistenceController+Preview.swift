@@ -57,11 +57,21 @@ extension PersistenceController {
                                                                        calories: 150))
         
         let breadFood = StoredFood(context: viewContext,
-                                  name: "Lunch Bread",
+                                  name: "Bread",
                                   amounts: [breadMacroEach])
         let butterFood = StoredFood(context: viewContext,
                                    name: "Butter",
                                    amounts: [butterMacroGrams, butterMacroTbsp, butterMacroCups])
+        let _ = StoredFood(context: viewContext,
+                           name: "Lunch Meat",
+                           amounts: [
+                           StoredAmount(context: viewContext,
+                                        measurement: StoredMeasurement(context: viewContext, unitType: "grams", unitValue: 15.0),
+                                        macros: StoredMacronutrients(context: viewContext,
+                                                                     protein: 10,
+                                                                     carbohydrates: 0,
+                                                                     fat: 5,
+                                                                     calories: 80))])
         let eatenBread = StoredEatenFood(context: viewContext,
                                          order: 0,
                                          food: breadFood,

@@ -8,6 +8,7 @@
 import Foundation
 
 public struct Food { // A logged edible
+    public var id: UUID = UUID()
     public let name: String
     public let longDescription: String
     public let amounts: [Amount] // A measurements can have differing macro amounts
