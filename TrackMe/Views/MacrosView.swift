@@ -36,13 +36,11 @@ struct MacrosView: View {
                 .background(.blue)
             }
             Rectangle()
-                .fill(.gray)
+                .fill(.clear)
                 .overlay {
                     Text(String(format: "Calories %.0f", macros.calories))
                 }
         }
-        .background(.purple)
-        
     }
     
     func getWidth(m: Double, macros: Macronutrients) -> Double {

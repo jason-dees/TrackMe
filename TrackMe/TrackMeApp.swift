@@ -9,12 +9,18 @@ import SwiftUI
 
 @main
 struct TrackMeApp: App {
-    let persistenceController = PersistenceController.shared
-
+    let persistenceController = PersistenceController.preview
+    
     var body: some Scene {
         WindowGroup {
-            MainTabView(viewModel: DayViewModel())
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            let viewContext = persistenceController.container.viewContext
+            let dayController = DayController(context: viewContext)
+            let dayViewModel = DayViewModel(publisher: dayController.days.eraseToAnyPublisher())
+            let foodController = FoodController(context: viewContext)
+            let foodViewModel = FoodListViewModel(publisher: foodController.foods.eraseToAnyPublisher())
+            MainTabView(dayViewModel: dayViewModel,
+                        foodListViewModel: foodViewModel)
+            .environment(\.managedObjectContext, viewContext)
         }
     }
 }

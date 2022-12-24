@@ -9,59 +9,49 @@ import SwiftUI
 
 struct MealView: View {
     @State var meal: Meal
+    var shouldShowMealButtons: [UUID: Bool] = [:]
     var body: some View {
         VStack {
-            Group {
-                HStack {
-                    Text(meal.name)
-                        .font(.title2)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Button(action: addFood) {
-                        Image(systemName: "plus")
-                    }
+            HStack {
+                Text(meal.name)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Button(action: addFood) {
+                    Image(systemName: "plus")
                 }
-                .padding(10)
-                MacrosView(macros: meal.macros)
-                    .font(.title3)
-                    .fontWeight(.bold)
-                    .frame(height: 90.0)
             }
+            .font(.title2)
+            .padding(10)
+            MacrosView(macros: meal.macros)
+                .font(.title3)
+                .fontWeight(.bold)
+                .frame(height: 90.0)
+            Divider()
             ForEach(meal.eaten, id: \.self.id) { eaten in
-                VStack {
-                    Text(eaten.name)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .font(.headline)
-                        .padding(5)
-                    MacrosView(macros: eaten.macros)
-                        .frame(height: 50.0)
+                EatenFoodView(eatenFood: eaten).onTapGesture {
+                    addFood()
                 }
-                .background(.gray)
-                .swipeActions {
-                    Button {
-                        print("Remove food")
-                    } label: {
-                        Text("Remove")
-                    }
-                    .tint(.red)
-                    Button {
-                        print("Edit food")
-                    } label: {
-                        Text("Edit")
-                    }
-                    .tint(.yellow)
-                }
+                Divider()
             }
+        }
+        .overlay {
+            RoundedRectangle(cornerRadius: 5.0, style: .circular)
+                .stroke(.white, lineWidth: 0.5)
+//                                .fill(.clear)
+                .shadow(color: .gray, radius: 1, x: 0, y: 0)
         }
     }
     
     private func addFood() {
         
     }
+    private func removeFood() {
+        
+    }
 }
 
 struct MealView_Previews: PreviewProvider {
     static var previews: some View {
-        let day = DayViewModel(dayPublisher: DayController.preview.days.eraseToAnyPublisher()).today
+        let day = DayViewModel(publisher: DayController.preview.days.eraseToAnyPublisher()).today
         
         MealView(meal: day.meals.first ?? Meal())
     }

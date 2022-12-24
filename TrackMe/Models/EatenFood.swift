@@ -10,16 +10,19 @@ import Foundation
 public struct EatenFood {
     public let id: UUID = UUID()
     public let recipe: Recipe? // Has total quantity made, needs quantity used
-    public let food: Food? // Has quantity used
+    public let food: Food? // Has various quantities, needs quantity used
+    public let measurement: Measurement
     
-    public init(recipe: Recipe) {
+    public init(recipe: Recipe, measurement: Measurement) {
         self.recipe = recipe
         self.food = nil
+        self.measurement = measurement
     }
     
-    public init(food: Food){
+    public init(food: Food, measurement: Measurement){
         self.food = food
         self.recipe = nil
+        self.measurement = measurement
     }
 }
 
@@ -37,19 +40,21 @@ extension EatenFood {
     
     public var macros: Macronutrients {
         get {
+            if let food = self.food{
+                return food.macros(for: self.measurement)
+            }
             if let recipe = self.recipe {
-                return recipe.macros
+                let percentOfBase: Double = self.measurement.quantity / recipe.totalQuantity.quantity
+                return recipe.macros * percentOfBase
             }
-            if let food = self.food {
-                return food.macros
-            }
-            return Macronutrients.zeroed()
+            
+            return Macronutrients()
         }
     }
 }
 
 extension EatenFood {
     public init() {
-        self.init(food: Food())
+        self.init(food: Food(), measurement: Measurement.defaultValue)
     }
 }

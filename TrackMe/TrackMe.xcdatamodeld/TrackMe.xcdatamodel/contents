@@ -5,7 +5,7 @@
     </entity>
     <entity name="StoredAmount" representedClassName="StoredAmount" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <relationship name="edible" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StoredEdible" inverseName="amounts" inverseEntity="StoredEdible"/>
+        <relationship name="food" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StoredFood" inverseName="amounts" inverseEntity="StoredFood"/>
         <relationship name="macros" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="StoredMacronutrients" inverseName="amount" inverseEntity="StoredMacronutrients"/>
         <relationship name="measurement" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="StoredMeasurement" inverseName="amount" inverseEntity="StoredMeasurement"/>
     </entity>
@@ -17,24 +17,24 @@
     </entity>
     <entity name="StoredEatenFood" representedClassName="StoredEatenFood" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <relationship name="food" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StoredFood" inverseName="eatenFood" inverseEntity="StoredFood"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="food" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StoredFood" inverseName="eatenFoods" inverseEntity="StoredFood"/>
         <relationship name="meal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StoredMeal" inverseName="eatenFoods" inverseEntity="StoredMeal"/>
+        <relationship name="measurement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StoredMeasurement" inverseName="eatenFood" inverseEntity="StoredMeasurement"/>
         <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StoredRecipe" inverseName="eatenFood" inverseEntity="StoredRecipe"/>
-    </entity>
-    <entity name="StoredEdible" representedClassName="StoredEdible" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="amounts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StoredAmount" inverseName="edible" inverseEntity="StoredAmount"/>
-        <relationship name="food" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StoredFood" inverseName="edible" inverseEntity="StoredFood"/>
     </entity>
     <entity name="StoredFood" representedClassName="StoredFood" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="longDescription" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="eatenFood" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StoredEatenFood" inverseName="food" inverseEntity="StoredEatenFood"/>
-        <relationship name="edible" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StoredEdible" inverseName="food" inverseEntity="StoredEdible"/>
-        <relationship name="measurement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StoredMeasurement" inverseName="food" inverseEntity="StoredMeasurement"/>
-        <relationship name="recipe" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StoredRecipe" inverseName="ingredients" inverseEntity="StoredRecipe"/>
+        <relationship name="amounts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StoredAmount" inverseName="food" inverseEntity="StoredAmount"/>
+        <relationship name="eatenFoods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StoredEatenFood" inverseName="food" inverseEntity="StoredEatenFood"/>
+        <relationship name="ingredient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StoredIngredient" inverseName="food" inverseEntity="StoredIngredient"/>
+    </entity>
+    <entity name="StoredIngredient" representedClassName="StoredIngredient" syncable="YES" codeGenerationType="class">
+        <relationship name="food" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StoredFood" inverseName="ingredient" inverseEntity="StoredFood"/>
+        <relationship name="measurement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StoredMeasurement" inverseName="ingredient" inverseEntity="StoredMeasurement"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StoredRecipe" inverseName="ingredients" inverseEntity="StoredRecipe"/>
     </entity>
     <entity name="StoredMacronutrients" representedClassName="StoredMacronutrients" syncable="YES" codeGenerationType="class">
         <attribute name="calories" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -48,6 +48,7 @@
     <entity name="StoredMeal" representedClassName="StoredMeal" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="day" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StoredDay" inverseName="meals" inverseEntity="StoredDay"/>
         <relationship name="eatenFoods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StoredEatenFood" inverseName="meal" inverseEntity="StoredEatenFood"/>
     </entity>
@@ -56,7 +57,8 @@
         <attribute name="unitType" optional="YES" attributeType="String"/>
         <attribute name="unitValue" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="amount" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StoredAmount" inverseName="measurement" inverseEntity="StoredAmount"/>
-        <relationship name="food" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StoredFood" inverseName="measurement" inverseEntity="StoredFood"/>
+        <relationship name="eatenFood" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StoredEatenFood" inverseName="measurement" inverseEntity="StoredEatenFood"/>
+        <relationship name="ingredient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StoredIngredient" inverseName="measurement" inverseEntity="StoredIngredient"/>
         <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StoredRecipe" inverseName="totalQuantity" inverseEntity="StoredRecipe"/>
     </entity>
     <entity name="StoredRecipe" representedClassName="StoredRecipe" syncable="YES" codeGenerationType="class">
@@ -64,7 +66,7 @@
         <attribute name="longDescription" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="eatenFood" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StoredEatenFood" inverseName="recipe" inverseEntity="StoredEatenFood"/>
-        <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StoredFood" inverseName="recipe" inverseEntity="StoredFood"/>
+        <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StoredIngredient" inverseName="recipe" inverseEntity="StoredIngredient"/>
         <relationship name="totalQuantity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StoredMeasurement" inverseName="recipe" inverseEntity="StoredMeasurement"/>
     </entity>
 </model>

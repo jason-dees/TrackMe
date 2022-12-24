@@ -26,8 +26,12 @@
 		A32C2EC229399F3D00421ED0 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C2EC129399F3D00421ED0 /* Date.swift */; };
 		A32C2EC6294807E300421ED0 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C2EC5294807E300421ED0 /* DayView.swift */; };
 		A336D70C2956461700E7A977 /* MacrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A336D70B2956461700E7A977 /* MacrosView.swift */; };
+		A336D70E29574B2900E7A977 /* EatenFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A336D70D29574B2900E7A977 /* EatenFoodView.swift */; };
+		A336D71029578CC800E7A977 /* FoodListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A336D70F29578CC800E7A977 /* FoodListView.swift */; };
+		A336D71229578CEB00E7A977 /* FoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A336D71129578CEB00E7A977 /* FoodController.swift */; };
+		A336D71429578E6900E7A977 /* EdibleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A336D71329578E6900E7A977 /* EdibleListViewModel.swift */; };
+		A336D71629579C1800E7A977 /* StoredIngredient+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A336D71529579C1800E7A977 /* StoredIngredient+Extensions.swift */; };
 		A3E6A2F429481A8B00E0AA69 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6A2F329481A8B00E0AA69 /* Recipe.swift */; };
-		A3E6A2F829481AB500E0AA69 /* Edible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6A2F729481AB500E0AA69 /* Edible.swift */; };
 		A3E6A2FA29481AE200E0AA69 /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6A2F929481AE200E0AA69 /* Amount.swift */; };
 		A3E6A2FC29481B0300E0AA69 /* Macronutrients.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6A2FB29481B0300E0AA69 /* Macronutrients.swift */; };
 		A3E6A2FE29481B2400E0AA69 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6A2FD29481B2400E0AA69 /* Meal.swift */; };
@@ -35,7 +39,6 @@
 		A3E6A30329495A2F00E0AA69 /* StoredMacronutrients+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6A30229495A2F00E0AA69 /* StoredMacronutrients+Extensions.swift */; };
 		A3EBCB09294C024100893D36 /* StoredMeasurement+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EBCB08294C024100893D36 /* StoredMeasurement+Extensions.swift */; };
 		A3EBCB0B294C029000893D36 /* StoredAmount+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EBCB0A294C029000893D36 /* StoredAmount+Extensions.swift */; };
-		A3EBCB0D294C038300893D36 /* StoredEdible+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EBCB0C294C038300893D36 /* StoredEdible+Extensions.swift */; };
 		A3EBCB0F294C05BF00893D36 /* StoredEatenFood+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EBCB0E294C05BF00893D36 /* StoredEatenFood+Extensions.swift */; };
 		A3EBCB11294C066200893D36 /* StoredFood+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EBCB10294C066200893D36 /* StoredFood+Extensions.swift */; };
 		A3EBCB13294C076200893D36 /* StoredMeal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EBCB12294C076200893D36 /* StoredMeal+Extensions.swift */; };
@@ -87,8 +90,12 @@
 		A32C2EC129399F3D00421ED0 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		A32C2EC5294807E300421ED0 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		A336D70B2956461700E7A977 /* MacrosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacrosView.swift; sourceTree = "<group>"; };
+		A336D70D29574B2900E7A977 /* EatenFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EatenFoodView.swift; sourceTree = "<group>"; };
+		A336D70F29578CC800E7A977 /* FoodListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListView.swift; sourceTree = "<group>"; };
+		A336D71129578CEB00E7A977 /* FoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodController.swift; sourceTree = "<group>"; };
+		A336D71329578E6900E7A977 /* EdibleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdibleListViewModel.swift; sourceTree = "<group>"; };
+		A336D71529579C1800E7A977 /* StoredIngredient+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoredIngredient+Extensions.swift"; sourceTree = "<group>"; };
 		A3E6A2F329481A8B00E0AA69 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
-		A3E6A2F729481AB500E0AA69 /* Edible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edible.swift; sourceTree = "<group>"; };
 		A3E6A2F929481AE200E0AA69 /* Amount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
 		A3E6A2FB29481B0300E0AA69 /* Macronutrients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macronutrients.swift; sourceTree = "<group>"; };
 		A3E6A2FD29481B2400E0AA69 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
@@ -96,7 +103,6 @@
 		A3E6A30229495A2F00E0AA69 /* StoredMacronutrients+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoredMacronutrients+Extensions.swift"; sourceTree = "<group>"; };
 		A3EBCB08294C024100893D36 /* StoredMeasurement+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoredMeasurement+Extensions.swift"; sourceTree = "<group>"; };
 		A3EBCB0A294C029000893D36 /* StoredAmount+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoredAmount+Extensions.swift"; sourceTree = "<group>"; };
-		A3EBCB0C294C038300893D36 /* StoredEdible+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoredEdible+Extensions.swift"; sourceTree = "<group>"; };
 		A3EBCB0E294C05BF00893D36 /* StoredEatenFood+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoredEatenFood+Extensions.swift"; sourceTree = "<group>"; };
 		A3EBCB10294C066200893D36 /* StoredFood+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoredFood+Extensions.swift"; sourceTree = "<group>"; };
 		A3EBCB12294C076200893D36 /* StoredMeal+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoredMeal+Extensions.swift"; sourceTree = "<group>"; };
@@ -203,7 +209,6 @@
 				A3E6A2F929481AE200E0AA69 /* Amount.swift */,
 				A32C2EB529312D3D00421ED0 /* Day.swift */,
 				A3E6A2FF29481B3600E0AA69 /* EatenFood.swift */,
-				A3E6A2F729481AB500E0AA69 /* Edible.swift */,
 				A32C2EB1292FA91A00421ED0 /* Food.swift */,
 				A3E6A2FB29481B0300E0AA69 /* Macronutrients.swift */,
 				A3E6A2FD29481B2400E0AA69 /* Meal.swift */,
@@ -227,12 +232,12 @@
 				A3E6A30229495A2F00E0AA69 /* StoredMacronutrients+Extensions.swift */,
 				A3EBCB08294C024100893D36 /* StoredMeasurement+Extensions.swift */,
 				A3EBCB0A294C029000893D36 /* StoredAmount+Extensions.swift */,
-				A3EBCB0C294C038300893D36 /* StoredEdible+Extensions.swift */,
 				A3EBCB0E294C05BF00893D36 /* StoredEatenFood+Extensions.swift */,
 				A3EBCB10294C066200893D36 /* StoredFood+Extensions.swift */,
 				A3EBCB12294C076200893D36 /* StoredMeal+Extensions.swift */,
 				A3EBCB14294C07CA00893D36 /* StoredDay+Extensions.swift */,
 				A3EBCB222956085700893D36 /* StoredRecipe+Extensions.swift */,
+				A336D71529579C1800E7A977 /* StoredIngredient+Extensions.swift */,
 			);
 			path = Stored;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				A3EBCB17294C111B00893D36 /* DayViewModel.swift */,
+				A336D71329578E6900E7A977 /* EdibleListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -251,6 +257,7 @@
 				A3EBCB1D2955FCA500893D36 /* Extensions */,
 				A32C2E80292ECF8F00421ED0 /* PersistenceController.swift */,
 				A3EBCB202955FDF000893D36 /* DayController.swift */,
+				A336D71129578CEB00E7A977 /* FoodController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -263,6 +270,8 @@
 				A32C2EBC2939982E00421ED0 /* MainTabView.swift */,
 				A32C2EAE292ED19C00421ED0 /* MealView.swift */,
 				A336D70B2956461700E7A977 /* MacrosView.swift */,
+				A336D70D29574B2900E7A977 /* EatenFoodView.swift */,
+				A336D70F29578CC800E7A977 /* FoodListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -407,8 +416,8 @@
 			files = (
 				A32C2E7F292ECF8F00421ED0 /* TrackMeApp.swift in Sources */,
 				A3EBCB0B294C029000893D36 /* StoredAmount+Extensions.swift in Sources */,
-				A3E6A2F829481AB500E0AA69 /* Edible.swift in Sources */,
 				A3EBCB212955FDF000893D36 /* DayController.swift in Sources */,
+				A336D70E29574B2900E7A977 /* EatenFoodView.swift in Sources */,
 				A336D70C2956461700E7A977 /* MacrosView.swift in Sources */,
 				A32C2EC6294807E300421ED0 /* DayView.swift in Sources */,
 				A3EBCB1F2955FCC000893D36 /* PersistenceController+Preview.swift in Sources */,
@@ -421,16 +430,19 @@
 				A3EBCB232956085700893D36 /* StoredRecipe+Extensions.swift in Sources */,
 				A3EBCB0F294C05BF00893D36 /* StoredEatenFood+Extensions.swift in Sources */,
 				A32C2E84292ECF8F00421ED0 /* TrackMe.xcdatamodeld in Sources */,
-				A3EBCB0D294C038300893D36 /* StoredEdible+Extensions.swift in Sources */,
 				A32C2EB629312D3D00421ED0 /* Day.swift in Sources */,
 				A32C2E86292ECF8F00421ED0 /* ContentView.swift in Sources */,
 				A32C2E81292ECF8F00421ED0 /* PersistenceController.swift in Sources */,
+				A336D71629579C1800E7A977 /* StoredIngredient+Extensions.swift in Sources */,
 				A3E6A30029481B3600E0AA69 /* EatenFood.swift in Sources */,
+				A336D71429578E6900E7A977 /* EdibleListViewModel.swift in Sources */,
 				A3EBCB18294C111B00893D36 /* DayViewModel.swift in Sources */,
 				A3E6A30329495A2F00E0AA69 /* StoredMacronutrients+Extensions.swift in Sources */,
 				A32C2EAF292ED19D00421ED0 /* MealView.swift in Sources */,
 				A3E6A2FC29481B0300E0AA69 /* Macronutrients.swift in Sources */,
 				A32C2EB2292FA91A00421ED0 /* Food.swift in Sources */,
+				A336D71229578CEB00E7A977 /* FoodController.swift in Sources */,
+				A336D71029578CC800E7A977 /* FoodListView.swift in Sources */,
 				A3E6A2F429481A8B00E0AA69 /* Recipe.swift in Sources */,
 				A3EBCB09294C024100893D36 /* StoredMeasurement+Extensions.swift in Sources */,
 				A3EBCB15294C07CA00893D36 /* StoredDay+Extensions.swift in Sources */,

@@ -15,6 +15,10 @@ public struct Amount {
         self.measurement = measurement
         self.macros = macros
     }
+    
+    public init() {
+        self.init(measurement: Measurement.defaultValue, macros: Macronutrients())
+    }
 }
 
 extension Amount {

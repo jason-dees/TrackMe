@@ -12,9 +12,9 @@ public struct Recipe { // A grouping of ingredients with quantity data
     public let name: String
     public let longDescription: String
     public let totalQuantity: Measurement
-    public let ingredients: [Food]
+    public let ingredients: [Ingredient] // need Food+Amount
     
-    public init(name: String, longDescription: String, totalQuantity: Measurement, ingredients: [Food]) {
+    public init(name: String, longDescription: String, totalQuantity: Measurement, ingredients: [Ingredient]) {
         self.name = name
         self.longDescription = longDescription
         self.totalQuantity = totalQuantity
@@ -28,6 +28,17 @@ extension Recipe {
             return self.ingredients.reduce(Macronutrients.zeroed(), {
                 $0 + $1.macros
             })
+        }
+    }
+}
+
+public struct Ingredient {
+    public let food: Food
+    public let measurement: Measurement
+    
+    public var macros: Macronutrients {
+        get {
+            food.macros(for: measurement)
         }
     }
 }

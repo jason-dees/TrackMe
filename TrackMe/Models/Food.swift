@@ -10,34 +10,34 @@ import Foundation
 public struct Food { // A logged edible
     public let name: String
     public let longDescription: String
-    public let edible: Edible // Do i want to copy the edible information? Just macros here
-    public let measurement: Measurement
+    public let amounts: [Amount] // A measurements can have differing macro amounts
     
-    public init(name: String, longDescription: String = "", edible: Edible, measurement: Measurement) {
+    public init(name: String, longDescription: String = "", amounts: [Amount]) {
         self.name = name
         self.longDescription = longDescription
-        self.edible = edible
-        self.measurement = measurement
+        self.amounts = amounts
+    }
+    
+    func amount(for measurement: Measurement) -> Amount {
+        guard let baseAmount = amounts.first(where: {$0.measurement == measurement}) else {
+            NSLog("Macronutrients not found for food \(self.name) and \(measurement)")
+            return Amount()
+        }
+        return baseAmount
+    }
+    
+    func macros(for measurement: Measurement) -> Macronutrients {
+        let baseAmount = amount(for: measurement)
+        let percentOfBase: Double = measurement.quantity / baseAmount.quantity
+        return baseAmount.macros * percentOfBase
     }
 }
 
 extension Food {
-    public var macros: Macronutrients {
-        get {
-            guard let baseAmount = self.edible.amounts.first(where: {$0.measurement == self.measurement}) else {
-                NSLog("Macronutrients not found for food \(self.name) and \(self.measurement)")
-                return Macronutrients.zeroed()
-            }
-            let percentOfBase: Double = self.measurement.quantity / baseAmount.quantity
-            return baseAmount.macros * percentOfBase
-        }
-    }
-    
     public init() {
         self.init(name: "Unknown Food",
                   longDescription: "Food was not found so this default value was created",
-                  edible: Edible(),
-                  measurement: Measurement.defaultValue)
+                  amounts: [])
     }
 }
 

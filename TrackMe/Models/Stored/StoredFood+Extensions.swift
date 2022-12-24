@@ -9,18 +9,22 @@ import CoreData
 import Foundation
 
 extension StoredFood {
-    public convenience init(context moc: NSManagedObjectContext, name: String, edible: StoredEdible, measurement: StoredMeasurement) {
+    public convenience init(context moc: NSManagedObjectContext, name: String, amounts: [StoredAmount]) {
         self.init(context: moc)
         self.name = name
-        self.edible = edible
-        self.measurement = measurement
+        self.amounts = Set(amounts) as NSSet
+    }
+    
+    public var amountsArray: [StoredAmount] {
+        get {
+            self.amounts?.allObjects as? [StoredAmount] ?? []
+        }
     }
     
     public var food: Food {
         get {
             Food(name: self.name ?? "Unknown food",
-                 edible: self.edible?.edible ?? Edible(),
-                 measurement: self.measurement?.measurement ?? Measurement.defaultValue)
+                 amounts: amountsArray.map { $0.amount })
         }
     }
 }

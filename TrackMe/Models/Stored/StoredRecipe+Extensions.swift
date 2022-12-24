@@ -9,9 +9,9 @@ import Foundation
 
 extension StoredRecipe {
     
-    public var ingredientsArray: [StoredFood] {
+    public var ingredientsArray: [StoredIngredient] {
         get {
-            self.ingredients?.allObjects as? [StoredFood] ?? []
+            self.ingredients?.allObjects as? [StoredIngredient] ?? []
         }
     }
     
@@ -20,7 +20,7 @@ extension StoredRecipe {
             Recipe(name: self.name ?? "Unknown Recipe",
                    longDescription: self.longDescription ?? "This is a default value due to an unknown recipe",
                    totalQuantity: self.totalQuantity?.measurement ?? Measurement.defaultValue,
-                   ingredients: self.ingredientsArray.map { $0.food })
+                   ingredients: self.ingredientsArray.map { $0.ingredient })
         }
     }
 }

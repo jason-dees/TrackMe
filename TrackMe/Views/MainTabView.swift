@@ -8,25 +8,40 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @StateObject var viewModel: DayViewModel
+    @StateObject var dayViewModel: DayViewModel
+    @StateObject var foodListViewModel: FoodListViewModel
+    
     var body: some View {
         TabView {
-            DayView(day: viewModel.today)
-                .badge(0)
-                .tabItem {
-                    Label("Day", systemImage: "calendar")
-                }
-            Text("some other view")
+            FoodListView(viewModel: foodListViewModel)
                 .badge(0)
                 .tabItem {
                     Label("Foods", systemImage: "carrot")
                 }
+            DayView(day: dayViewModel.today)
+                .badge(0)
+                .tabItem {
+                    Label("Day", systemImage: "calendar")
+                }
         }
+        .onAppear {
+            let apparence = UITabBarAppearance()
+            apparence.configureWithOpaqueBackground()
+            if #available(iOS 15.0, *) {
+                UITabBar.appearance().scrollEdgeAppearance = apparence
+                
+            }
+        }
+        
     }
+    
+    
 }
 
 struct MainTabView_Previews: PreviewProvider {
     static var previews: some View {
-        MainTabView(viewModel: DayViewModel(dayPublisher: DayController.preview.days.eraseToAnyPublisher()))
+        MainTabView(dayViewModel: DayViewModel(publisher: DayController.preview.days.eraseToAnyPublisher()),
+                    foodListViewModel: FoodListViewModel(publisher: FoodController.preview.foods.eraseToAnyPublisher())
+        )
     }
 }

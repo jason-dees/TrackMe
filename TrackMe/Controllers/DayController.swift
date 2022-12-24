@@ -8,6 +8,7 @@
 import Combine
 import CoreData
 import Foundation
+import SwiftUI
 
 //https://betterprogramming.pub/swiftui-and-coredata-the-mvvm-way-ab9847cbff0f
 
@@ -15,10 +16,10 @@ class DayController: NSObject, ObservableObject {
     var days = CurrentValueSubject<[StoredDay], Never>([])
     private let dayFetchController: NSFetchedResultsController<StoredDay>
     
-    static let shared = DayController()
+    static let shared = DayController(context: PersistenceController.shared.container.viewContext)
     static let preview = DayController(context: PersistenceController.preview.container.viewContext)
     
-    private init(context moc: NSManagedObjectContext = PersistenceController.shared.container.viewContext) {
+    init(context moc: NSManagedObjectContext) {
         
         let fetchRequest = StoredDay.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \StoredDay.date, ascending: true)]

@@ -23,8 +23,13 @@ class DayViewModel: ObservableObject {
     
     private var cancellable: AnyCancellable?
     
-    init(dayPublisher: AnyPublisher<[StoredDay], Never> = DayController.shared.days.eraseToAnyPublisher()) {
-        cancellable = dayPublisher.sink { days in
+    //= DayController.shared.days.eraseToAnyPublisher()
+    convenience init(context moc: NSManagedObjectContext) {
+        self.init(publisher: DayController(context: moc).days.eraseToAnyPublisher())
+    }
+    
+    init(publisher: AnyPublisher<[StoredDay], Never>) {
+        cancellable = publisher.sink { days in
             NSLog("Updating days")
             self.storedDays = days
         }

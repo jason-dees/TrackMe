@@ -19,7 +19,7 @@ extension StoredDay {
     
     public var mealsArray: [StoredMeal] {
         get {
-            self.meals?.allObjects as? [StoredMeal] ?? []
+            (self.meals?.allObjects as? [StoredMeal] ?? []).sorted { $0.order < $1.order }
         }
     }
     

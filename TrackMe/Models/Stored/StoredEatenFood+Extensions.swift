@@ -10,9 +10,11 @@ import Foundation
 
 extension StoredEatenFood {
     
-    public convenience init(context moc: NSManagedObjectContext, food: StoredFood) {
+    public convenience init(context moc: NSManagedObjectContext, order: Int, food: StoredFood, measurement: StoredMeasurement) {
         self.init(context: moc)
+        self.order = Int16(order)
         self.food = food
+        self.measurement = measurement
     }
     
     public convenience init(context moc: NSManagedObjectContext, recipe: StoredRecipe) {
@@ -37,10 +39,10 @@ extension StoredEatenFood {
     public var eatenFood: EatenFood {
         get {
             if let food = self.food {
-                return EatenFood(food: food.food)
+                return EatenFood(food: food.food, measurement: measurement?.measurement ?? Measurement.defaultValue)
             }
             if let recipe = self.recipe {
-                return EatenFood(recipe: recipe.recipe)
+                return EatenFood(recipe: recipe.recipe, measurement: measurement?.measurement ?? Measurement.defaultValue)
             }
             return EatenFood()
         }

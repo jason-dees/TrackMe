@@ -19,18 +19,11 @@ struct DayView: View {
                     Rectangle()
                         .fill(.white)
                 }
-            ScrollView {
+            List {
                 ForEach(day.meals, id: \.self.id){ meal in
-                    MealView(meal: meal)
-                        .padding(10)
-                        .background {
-                            RoundedRectangle(cornerRadius: 5.0, style: .circular)
-                                .fill(.white)
-                                .shadow(color: .blue, radius: 1, x: 0, y: 0)
-                                .padding(10)
-                        }
+                    MealView(meal: meal).listRowSeparator(.hidden)
                 }
-            }
+            }.listStyle(.plain)
         }
     }
     
@@ -41,7 +34,7 @@ struct DayView: View {
 
 struct DayView_Previews: PreviewProvider {
     static var previews: some View {
-        let day = DayViewModel(dayPublisher: DayController.preview.days.eraseToAnyPublisher()).today
+        let day = DayViewModel(publisher: DayController.preview.days.eraseToAnyPublisher()).today
         DayView(day: day)
     }
 }
