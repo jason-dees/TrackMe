@@ -23,6 +23,8 @@ extension Amount {
     }
 }
 
+//TODO: Move to Foundation's Measurement object now that I have a ViewModel + transform pattern
+
 public enum Measurement { // macros have a measurement associated with them
     case cups(Double)
     case grams(Double)

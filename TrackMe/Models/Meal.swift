@@ -8,6 +8,7 @@
 import Foundation
 
 public struct Meal {
+    public var id: UUID = UUID()
     public let name: String
     public let eaten: [EatenFood]
     
@@ -15,13 +16,17 @@ public struct Meal {
         self.name = name
         self.eaten = eaten
     }
+    
+    public init() {
+        self.init(name: "Unknown Meal", eaten: [])
+    }
 }
 
 extension Meal {
     public var macros: Macronutrients {
-        get throws {
-            return try self.eaten.reduce(Macronutrients.zeroed(), {
-                try $0 + $1.macros
+        get {
+            return self.eaten.reduce(Macronutrients.zeroed(), {
+                $0 + $1.macros
             })
         }
     }

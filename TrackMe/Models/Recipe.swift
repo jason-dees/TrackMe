@@ -24,9 +24,9 @@ public struct Recipe { // A grouping of ingredients with quantity data
 
 extension Recipe {
     public var macros: Macronutrients {
-        get throws {
-            return try self.ingredients.reduce(Macronutrients.zeroed(), {
-                try $0 + $1.macros
+        get {
+            return self.ingredients.reduce(Macronutrients.zeroed(), {
+                $0 + $1.macros
             })
         }
     }

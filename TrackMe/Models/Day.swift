@@ -26,9 +26,9 @@ public struct Day {
 
 extension Day {
     public var macros: Macronutrients {
-        get throws {
-            return try self.meals.reduce(Macronutrients.zeroed(), {
-                try $0 + $1.macros
+        get {
+            return self.meals.reduce(Macronutrients.zeroed(), {
+                $0 + $1.macros
             })
         }
     }

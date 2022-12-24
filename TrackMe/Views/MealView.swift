@@ -11,14 +11,47 @@ struct MealView: View {
     @State var meal: Meal
     var body: some View {
         VStack {
-            Text(meal.name).font(.headline)
-            // meal macro view here
-            ForEach(meal.eaten, id: \.self.name) { eaten in
-                Text(eaten.name)
-                // eaten macro view here
+            Group {
+                HStack {
+                    Text(meal.name)
+                        .font(.title2)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Button(action: addFood) {
+                        Image(systemName: "plus")
+                    }
+                }
+                .padding(10)
+                MacrosView(macros: meal.macros)
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .frame(height: 90.0)
+            }
+            ForEach(meal.eaten, id: \.self.id) { eaten in
+                VStack {
+                    Text(eaten.name)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(.headline)
+                        .padding(5)
+                    MacrosView(macros: eaten.macros)
+                        .frame(height: 50.0)
+                }
+                .background(.gray)
+                .swipeActions {
+                    Button {
+                        print("Remove food")
+                    } label: {
+                        Text("Remove")
+                    }
+                    .tint(.red)
+                    Button {
+                        print("Edit food")
+                    } label: {
+                        Text("Edit")
+                    }
+                    .tint(.yellow)
+                }
             }
         }
-        .multilineTextAlignment(.leading)
     }
     
     private func addFood() {
@@ -28,10 +61,8 @@ struct MealView: View {
 
 struct MealView_Previews: PreviewProvider {
     static var previews: some View {
-        let breadMacroEach = Amount(measurement: .each(2), macros: Macronutrients(protein: 3, carbohydrates: 20, fat: 2, calories: 150))
-        let breadEdible = Edible(name: "bread", amounts: [breadMacroEach])
-        let eatenBread = EatenFood(food: Food(name: "Bread", edible: breadEdible, measurement: .each(2)))
-        let meal = Meal(name: "Lunch", eaten: [eatenBread])
-        MealView(meal: meal)
+        let day = DayViewModel(dayPublisher: DayController.preview.days.eraseToAnyPublisher()).today
+        
+        MealView(meal: day.meals.first ?? Meal())
     }
 }

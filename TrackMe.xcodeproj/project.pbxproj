@@ -25,6 +25,7 @@
 		A32C2EBD2939982E00421ED0 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C2EBC2939982E00421ED0 /* MainTabView.swift */; };
 		A32C2EC229399F3D00421ED0 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C2EC129399F3D00421ED0 /* Date.swift */; };
 		A32C2EC6294807E300421ED0 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C2EC5294807E300421ED0 /* DayView.swift */; };
+		A336D70C2956461700E7A977 /* MacrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A336D70B2956461700E7A977 /* MacrosView.swift */; };
 		A3E6A2F429481A8B00E0AA69 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6A2F329481A8B00E0AA69 /* Recipe.swift */; };
 		A3E6A2F829481AB500E0AA69 /* Edible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6A2F729481AB500E0AA69 /* Edible.swift */; };
 		A3E6A2FA29481AE200E0AA69 /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6A2F929481AE200E0AA69 /* Amount.swift */; };
@@ -85,6 +86,7 @@
 		A32C2EBC2939982E00421ED0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		A32C2EC129399F3D00421ED0 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		A32C2EC5294807E300421ED0 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
+		A336D70B2956461700E7A977 /* MacrosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacrosView.swift; sourceTree = "<group>"; };
 		A3E6A2F329481A8B00E0AA69 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		A3E6A2F729481AB500E0AA69 /* Edible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edible.swift; sourceTree = "<group>"; };
 		A3E6A2F929481AE200E0AA69 /* Amount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				A32C2EC5294807E300421ED0 /* DayView.swift */,
 				A32C2EBC2939982E00421ED0 /* MainTabView.swift */,
 				A32C2EAE292ED19C00421ED0 /* MealView.swift */,
+				A336D70B2956461700E7A977 /* MacrosView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				A3EBCB0B294C029000893D36 /* StoredAmount+Extensions.swift in Sources */,
 				A3E6A2F829481AB500E0AA69 /* Edible.swift in Sources */,
 				A3EBCB212955FDF000893D36 /* DayController.swift in Sources */,
+				A336D70C2956461700E7A977 /* MacrosView.swift in Sources */,
 				A32C2EC6294807E300421ED0 /* DayView.swift in Sources */,
 				A3EBCB1F2955FCC000893D36 /* PersistenceController+Preview.swift in Sources */,
 				A3E6A2FA29481AE200E0AA69 /* Amount.swift in Sources */,

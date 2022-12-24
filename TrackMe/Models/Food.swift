@@ -23,9 +23,10 @@ public struct Food { // A logged edible
 
 extension Food {
     public var macros: Macronutrients {
-        get throws {
+        get {
             guard let baseAmount = self.edible.amounts.first(where: {$0.measurement == self.measurement}) else {
-                throw FoodError.measurementNotFound
+                NSLog("Macronutrients not found for food \(self.name) and \(self.measurement)")
+                return Macronutrients.zeroed()
             }
             let percentOfBase: Double = self.measurement.quantity / baseAmount.quantity
             return baseAmount.macros * percentOfBase

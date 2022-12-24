@@ -51,10 +51,20 @@ extension Macronutrients: Equatable {
     }
 }
 
-extension Macronutrients: CustomStringConvertible {
-    public var description: String {
+extension Macronutrients {
+    var percentProtein: Double {
         get {
-            return "I'll get you one day"
+            self.protein/(self.carbohydrates + self.protein + self.fat * 2)
+        }
+    }
+    var percentCarbs: Double {
+        get {
+            self.carbohydrates/(self.carbohydrates + self.protein + self.fat * 2)
+        }
+    }
+    var percentFat: Double {
+        get {
+            (self.fat*2)/(self.carbohydrates + self.protein + self.fat * 2)
         }
     }
 }

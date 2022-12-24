@@ -11,10 +11,10 @@ import TrackMe
 final class FoodTests: XCTestCase {
     
     func testFoodRelationships() {
-        XCTAssertEqual(try butter.macros.calories, 150.0 * 3)
+        XCTAssertEqual(butter.macros.calories, 150.0 * 3)
     }
     
     func testRecipeMacros() {
-        XCTAssertEqual(try sandwich.macros.calories, try butter.macros.calories + bread.macros.calories)
+        XCTAssertEqual(sandwich.macros.calories, butter.macros.calories + bread.macros.calories)
     }
 }

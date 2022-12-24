@@ -63,7 +63,7 @@ extension PersistenceController {
                                        amounts: [breadMacroEach])
         let eatenBread = StoredEatenFood(context: viewContext,
                                          food: StoredFood(context: viewContext,
-                                                          name: "Bread",
+                                                          name: "Lunch Bread",
                                                           edible: breadEdible,
                                                           measurement: StoredMeasurement(context: viewContext,
                                                                                          unitType: "each",
@@ -77,13 +77,29 @@ extension PersistenceController {
                                                                                           unitValue: 45)))
         let meal = StoredMeal(context: viewContext,
                               name: "Lunch",
-                              eatenFoods: [eatenBread, eatenBread])
+                              eatenFoods: [eatenBread, eatenButter])
+        
+        let eatenBreadTwo = StoredEatenFood(context: viewContext,
+                                            food: StoredFood(context: viewContext,
+                                                             name: "Bread",
+                                                             edible: breadEdible,
+                                                             measurement: StoredMeasurement(context: viewContext,
+                                                                                            unitType: "each",
+                                                                                            unitValue: 2)))
+        
+        let eatenBreadThree = StoredEatenFood(context: viewContext,
+                                              food: StoredFood(context: viewContext,
+                                                               name: "Bread Again",
+                                                               edible: breadEdible,
+                                                               measurement: StoredMeasurement(context: viewContext,
+                                                                                              unitType: "each",
+                                                                                              unitValue: 2)))
         let mealOne = StoredMeal(context: viewContext,
                                  name: "Pre-Lunch",
-                                 eatenFoods: [eatenBread, eatenButter])
+                                 eatenFoods: [eatenBreadTwo, eatenBreadThree])
         let day = StoredDay(context: viewContext,
                             date: Date.now,
-                            meals: [mealOne, meal, mealOne],
+                            meals: [mealOne, meal],
                             calorieLimit: 2000)
         do {
             try viewContext.save()

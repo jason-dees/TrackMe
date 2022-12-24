@@ -8,6 +8,7 @@
 import Foundation
 
 public struct EatenFood {
+    public let id: UUID = UUID()
     public let recipe: Recipe? // Has total quantity made, needs quantity used
     public let food: Food? // Has quantity used
     
@@ -35,14 +36,14 @@ extension EatenFood {
     }
     
     public var macros: Macronutrients {
-        get throws{
+        get {
             if let recipe = self.recipe {
-                return try recipe.macros
+                return recipe.macros
             }
             if let food = self.food {
-                return try food.macros
+                return food.macros
             }
-            throw FoodError.macrosNotFound
+            return Macronutrients.zeroed()
         }
     }
 }
