@@ -82,6 +82,31 @@ extension PersistenceController {
                                                                      carbohydrates: 45,
                                                                      fat: 20,
                                                                      calories: 380))])
+        for i in 0...100 {
+            let protein = Double.random(in: 0...100)
+            let carbohydrates = Double.random(in: 0...100)
+            let fat = Double.random(in: 0...100)
+            let calories = protein * 4 + carbohydrates * 4 + fat * 8
+            let unitGrams = Double.random(in: 0...100)
+            let unitEach = Double.random(in: 0...5)
+            let _ = StoredFood(context: viewContext,
+                               name: "Some Food \(i)",
+                               amounts: [
+                               StoredAmount(context: viewContext,
+                                            measurement: StoredMeasurement(context: viewContext, unitType: "grams", unitValue: unitGrams),
+                                            macros: StoredMacronutrients(context: viewContext,
+                                                                         protein: protein,
+                                                                         carbohydrates: carbohydrates,
+                                                                         fat: fat,
+                                                                         calories: calories)),
+                               StoredAmount(context: viewContext,
+                                            measurement: StoredMeasurement(context: viewContext, unitType: "each", unitValue: unitEach),
+                                            macros: StoredMacronutrients(context: viewContext,
+                                                                         protein: protein/2,
+                                                                         carbohydrates: carbohydrates/2,
+                                                                         fat: fat/2,
+                                                                         calories: calories/2))])
+        }
         let eatenBread = StoredEatenFood(context: viewContext,
                                          order: 0,
                                          food: breadFood,

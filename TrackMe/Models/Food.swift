@@ -12,6 +12,7 @@ public struct Food { // A logged edible
     public let name: String
     public let longDescription: String
     public let amounts: [Amount] // A measurements can have differing macro amounts
+    public let icon: String = "carrot"
     
     public init(name: String, longDescription: String = "", amounts: [Amount]) {
         self.name = name

@@ -9,23 +9,24 @@ import SwiftUI
 
 struct FoodListView: View {
     @StateObject var viewModel: FoodListViewModel
+    @State var searchText  = ""
     
     var body: some View {
-        VStack{
-            Text("Foods")
-                .font(.title)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(10)
-                .background {
-                    Rectangle()
-                        .fill(.white)
-                }
+        NavigationView{
             List {
                 ForEach(viewModel.foods, id: \.id) { food in
-                    Text(food.name)
+                    HStack {
+                        Image(systemName: food.icon)
+                        Text(food.name)
+                    }
                 }
-            }.listStyle(.grouped)
+            }
+            .listStyle(.grouped)
+            .navigationTitle("Foods")
         }
+        .searchable(text: $searchText,
+                    placement: .navigationBarDrawer(displayMode: .always),
+                    prompt: "Search foods")
     }
 }
 
