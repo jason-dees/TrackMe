@@ -16,7 +16,7 @@ struct FoodListView: View {
     var body: some View {
         ScrollViewReader { scrollProxy in
             ZStack {
-                NavigationView{
+                NavigationView {
                     List {
                         ForEach(filteredAlphabet, id: \.self) { letter in
                             Section(header: Text(letter).id(letter)) {
@@ -29,7 +29,7 @@ struct FoodListView: View {
                         }
                         
                     }
-                    .listStyle(.grouped)
+                    .listStyle(.plain)
                     .navigationTitle("Foods")
                     .searchable(text: $searchText,
                                 placement: .navigationBarDrawer(displayMode: .always),
