@@ -36,7 +36,6 @@ struct MealView: View {
         .overlay {
             RoundedRectangle(cornerRadius: 5.0, style: .circular)
                 .stroke(.white, lineWidth: 0.5)
-//                                .fill(.clear)
                 .shadow(color: .gray, radius: 1, x: 0, y: 0)
         }
     }

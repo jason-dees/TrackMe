@@ -39,6 +39,13 @@ extension Macronutrients: Equatable {
                        calories: lhs.calories * rhs)
     }
     
+    public static func /(lhs: Macronutrients, rhs: Double) -> Macronutrients {
+        Macronutrients(protein: lhs.protein / rhs,
+                       carbohydrates: lhs.carbohydrates / rhs,
+                       fat: lhs.fat / rhs,
+                       calories: lhs.calories / rhs)
+    }
+    
     public static func +(lhs: Macronutrients, rhs: Macronutrients) -> Macronutrients {
         Macronutrients(protein: lhs.protein + rhs.protein,
                        carbohydrates: lhs.carbohydrates + rhs.carbohydrates,

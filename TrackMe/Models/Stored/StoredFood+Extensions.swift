@@ -11,6 +11,7 @@ import Foundation
 extension StoredFood {
     public convenience init(context moc: NSManagedObjectContext, name: String, amounts: [StoredAmount]) {
         self.init(context: moc)
+        self.id = UUID()
         self.name = name
         self.amounts = Set(amounts) as NSSet
     }
@@ -23,7 +24,7 @@ extension StoredFood {
     
     public var food: Food {
         get {
-            Food(name: self.name ?? "Unknown food",
+            Food(id: self.id ?? UUID(), name: self.name ?? "Unknown food",
                  amounts: amountsArray.map { $0.amount })
         }
     }

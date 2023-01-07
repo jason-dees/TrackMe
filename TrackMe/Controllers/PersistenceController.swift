@@ -8,7 +8,8 @@
 import CoreData
 
 class PersistenceController: ObservableObject {
-    static let shared = PersistenceController(inMemory: false)
+    //static let shared = PersistenceController(inMemory: false)
+    static let shared = PersistenceController.preview
     
     let container: NSPersistentCloudKitContainer
     

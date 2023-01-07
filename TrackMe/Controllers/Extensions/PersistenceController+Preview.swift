@@ -82,7 +82,7 @@ extension PersistenceController {
                                                                      carbohydrates: 45,
                                                                      fat: 20,
                                                                      calories: 380))])
-        for i in 0...100 {
+        for i in 0...5 {
             let protein = Double.random(in: 0...100)
             let carbohydrates = Double.random(in: 0...100)
             let fat = Double.random(in: 0...100)
@@ -109,7 +109,7 @@ extension PersistenceController {
         }
         let eatenBread = StoredEatenFood(context: viewContext,
                                          order: 0,
-                                         food: breadFood,
+                                         food: breadFood, // Should this be a copy? Soft delete foods otherwise.
                                          measurement: StoredMeasurement(context: viewContext, unitType: "each", unitValue: 1.0))
         let eatenButter = StoredEatenFood(context: viewContext,
                                           order: 1,

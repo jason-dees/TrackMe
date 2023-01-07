@@ -1,18 +1,18 @@
 //
-//  EdibleListViewModel.swift
+//  FoodViewModel.swift
 //  TrackMe
 //
-//  Created by Jason Dees on 12/24/22.
+//  Created by Jason Dees on 12/27/22.
 //
 
 import Combine
 import CoreData
 import Foundation
 
-class FoodListViewModel: ObservableObject {
+class FoodViewModel: ObservableObject {
     @Published var storedFoods: [StoredFood] = [] {
         willSet {
-            NSLog("Updating foods")
+            NSLog("\(FoodViewModel.self) willSet Updating foods")
         }
         didSet {
             self.foods = self.storedFoods.map { $0.food }
@@ -23,14 +23,15 @@ class FoodListViewModel: ObservableObject {
     
     private var cancellable: AnyCancellable?
     
-    convenience init(context moc: NSManagedObjectContext) {
-        self.init(publisher: FoodController(context: moc).foods.eraseToAnyPublisher())
-    }
-    
     init(publisher: AnyPublisher<[StoredFood], Never>) {
         cancellable = publisher.sink { foods in
-            NSLog("Updating edibles")
+            NSLog("\(FoodViewModel.self) Updating foods from sink")
             self.storedFoods = foods
         }
     }
+    
+    public func renameFood(_ food: StoredFood, newName: String) {
+        FoodController.shared.renameFood(food, newName: newName)
+    }
+
 }

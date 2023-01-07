@@ -9,85 +9,75 @@ import SwiftUI
 
 //https://stackoverflow.com/questions/58809357/swiftui-list-with-section-index-on-right-hand-side
 struct FoodListView: View {
-    @StateObject var viewModel: FoodListViewModel
-    @State var searchText  = ""
-    @State var currentLetter = ""
+    
+    @ObservedObject var viewModel: FoodListViewModel
+    
+    let alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
     
     var body: some View {
         ScrollViewReader { scrollProxy in
             ZStack {
                 NavigationView {
                     List {
-                        ForEach(filteredAlphabet, id: \.self) { letter in
+                        ForEach($viewModel.foodFirstLetters) { letterBinding in
+                            let letter = letterBinding.wrappedValue
                             Section(header: Text(letter).id(letter)) {
-                                ForEach(searchResults.filter { $0.name.prefix(1) == letter }, id: \.id) { food in
-                                    NavigationLink(destination: Text(food.name)){
-                                        Text(food.name)
+                                ForEach($viewModel.filteredFoods.filter { $0.wrappedValue.food.name.uppercased().prefix(1) == letter }, id: \.id) { $food in
+                                    NavigationLink(destination: FoodView(food: $food)){
+                                        Text(food.food.name)
+                                    }
+                                    .swipeActions {
+                                        Button(role: .destructive){
+                                            deleteFood()
+                                        } label: {
+                                            Text("Delete")
+                                        }
                                     }
                                 }
                             }
                         }
-                        
                     }
-                    .listStyle(.plain)
-                    .navigationTitle("Foods")
-                    .searchable(text: $searchText,
-                                placement: .navigationBarDrawer(displayMode: .always),
-                                prompt: "Search foods")
                 }
+                .listStyle(.plain)
+                .navigationTitle("Foods")
+                .searchable(text: $viewModel.foodFilter,
+                            placement: .navigationBarDrawer(displayMode: .always),
+                            prompt: "Search foods")
                 VStack {
                     ForEach(alphabet, id: \.self) { letter in
                         HStack {
                             Spacer()
-                            if filteredAlphabet.contains { $0 == letter }{
-                                Button(action: {
-                                    print("letter = \(letter)")
-                                    scrollProxy.scrollTo(letter)
-                                }, label: {
-                                    Text(letter)
-                                        .font(.system(size: 12))
-                                        .padding(.trailing, 7)
-                                })
-                            }
-                            else {
-                                Button(action: {
-                                }, label: {
-                                    Text(letter)
-                                        .font(.system(size: 12))
-                                        .padding(.trailing, 7)
-                                }).disabled(true)
-                            }
+                            Button(action: {
+                                scrollProxy.scrollTo(letter)
+                            }, label: {
+                                Text(letter)
+                                    .font(.system(size: 12))
+                                    .padding(.trailing, 7)
+                            })
+                            .disabled(!$viewModel.foodFirstLetters.contains { $0.wrappedValue == letter })
+                            
                         }
                     }
                 }
             }
         }
     }
-    var searchResults: [Food] {
-        if searchText.isEmpty {
-            return viewModel.foods
-        } else {
-            return viewModel.foods.filter { $0.name.lowercased().contains(searchText.lowercased()) }
-        }
-    }
     
-    let alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
-    
-    var filteredAlphabet: [String] {
-        alphabet.filter { a in searchResults.contains { f in a == f.name.prefix(1)} }
-    }
-    
-    func isSameLetter(_ foodName: String) -> Bool {
-        if currentLetter != foodName.prefix(1) {
-            currentLetter = String(foodName.prefix(1))
-            return false
-        }
-        return true
-    }
+    func deleteFood() {}
 }
 
 struct FoodListView_Previews: PreviewProvider {
     static var previews: some View {
         FoodListView(viewModel: FoodListViewModel(publisher: FoodController.preview.foods.eraseToAnyPublisher()))
     }
+}
+extension String: Identifiable {
+    public typealias ID = Int
+    public var id: Int {
+        return hash
+    }
+}
+
+extension Food: Identifiable {
+    public typealias ID = UUID
 }

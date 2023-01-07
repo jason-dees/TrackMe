@@ -16,10 +16,10 @@ class DayController: NSObject, ObservableObject {
     var days = CurrentValueSubject<[StoredDay], Never>([])
     private let dayFetchController: NSFetchedResultsController<StoredDay>
     
-    static let shared = DayController(context: PersistenceController.shared.container.viewContext)
+    static let shared = DayController(context: PersistenceController.preview.container.viewContext)
     static let preview = DayController(context: PersistenceController.preview.container.viewContext)
     
-    init(context moc: NSManagedObjectContext) {
+    init(context moc: NSManagedObjectContext = PersistenceController.preview.container.viewContext) {
         
         let fetchRequest = StoredDay.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \StoredDay.date, ascending: true)]

@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @StateObject var dayViewModel: DayViewModel
-    @StateObject var foodListViewModel: FoodListViewModel
+    @ObservedObject var dayViewModel: DayViewModel
+    @ObservedObject var foodListViewModel: FoodListViewModel
     
     var body: some View {
         TabView {

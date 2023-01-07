@@ -36,6 +36,10 @@ public struct Ingredient {
     public let food: Food
     public let measurement: Measurement
     
+    public init(food: Food, measurement: Measurement){
+        self.food = food
+        self.measurement = measurement
+    }
     public var macros: Macronutrients {
         get {
             food.macros(for: measurement)

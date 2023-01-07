@@ -8,19 +8,20 @@
 import Foundation
 
 public struct Food { // A logged edible
-    public var id: UUID = UUID()
+    public let id: UUID
     public let name: String
     public let longDescription: String
     public let amounts: [Amount] // A measurements can have differing macro amounts
     public let icon: String = "carrot"
     
-    public init(name: String, longDescription: String = "", amounts: [Amount]) {
+    public init(id: UUID, name: String, longDescription: String = "", amounts: [Amount]) {
+        self.id = id
         self.name = name
         self.longDescription = longDescription
         self.amounts = amounts
     }
     
-    func amount(for measurement: Measurement) -> Amount {
+    public func amount(for measurement: Measurement) -> Amount {
         guard let baseAmount = amounts.first(where: {$0.measurement == measurement}) else {
             NSLog("Macronutrients not found for food \(self.name) and \(measurement)")
             return Amount()
@@ -28,7 +29,7 @@ public struct Food { // A logged edible
         return baseAmount
     }
     
-    func macros(for measurement: Measurement) -> Macronutrients {
+    public func macros(for measurement: Measurement) -> Macronutrients {
         let baseAmount = amount(for: measurement)
         let percentOfBase: Double = measurement.quantity / baseAmount.quantity
         return baseAmount.macros * percentOfBase
@@ -37,7 +38,8 @@ public struct Food { // A logged edible
 
 extension Food {
     public init() {
-        self.init(name: "Unknown Food",
+        self.init(id: UUID(),
+                  name: "Unknown Food",
                   longDescription: "Food was not found so this default value was created",
                   amounts: [])
     }
