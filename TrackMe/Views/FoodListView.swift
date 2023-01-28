@@ -10,6 +10,7 @@ import SwiftUI
 //https://stackoverflow.com/questions/58809357/swiftui-list-with-section-index-on-right-hand-side
 struct FoodListView: View {
     
+    @Environment(\.foodController) private var foodController
     @ObservedObject var viewModel: FoodListViewModel
     
     let alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
@@ -23,7 +24,7 @@ struct FoodListView: View {
                             let letter = letterBinding.wrappedValue
                             Section(header: Text(letter).id(letter)) {
                                 ForEach($viewModel.filteredFoods.filter { $0.wrappedValue.food.name.uppercased().prefix(1) == letter }, id: \.id) { $food in
-                                    NavigationLink(destination: FoodView(food: $food)){
+                                    NavigationLink(destination: FoodView(viewModel: FoodViewModel(food, foodController: foodController))){
                                         Text(food.food.name)
                                     }
                                     .swipeActions {

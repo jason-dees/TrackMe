@@ -18,7 +18,10 @@ extension StoredFood {
     
     public var amountsArray: [StoredAmount] {
         get {
-            self.amounts?.allObjects as? [StoredAmount] ?? []
+            if let set = self.amounts as? Set<StoredAmount> {
+                return Array(set)
+            }
+            return []
         }
     }
     
@@ -26,6 +29,17 @@ extension StoredFood {
         get {
             Food(id: self.id ?? UUID(), name: self.name ?? "Unknown food",
                  amounts: amountsArray.map { $0.amount })
+        }
+    }
+}
+
+extension StoredFood {
+    public var uiName: String {
+        get {
+            self.name ?? "Unknown"
+        }
+        set {
+            self.name = newValue
         }
     }
 }

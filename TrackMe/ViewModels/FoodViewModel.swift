@@ -10,28 +10,44 @@ import CoreData
 import Foundation
 
 class FoodViewModel: ObservableObject {
-    @Published var storedFoods: [StoredFood] = [] {
-        willSet {
-            NSLog("\(FoodViewModel.self) willSet Updating foods")
-        }
+    @Published var food: StoredFood {
         didSet {
-            self.foods = self.storedFoods.map { $0.food }
+            self.amounts = food.amountsArray.map {$0.amount}
+            self.name = food.name ?? "Unknown name"
+            self.selectedAmountId = food.amountsArray.first?.amount.id ?? UUID()
         }
     }
-    
-    @Published var foods: [Food] = []
-    
+    let foodController: FoodController
     private var cancellable: AnyCancellable?
     
-    init(publisher: AnyPublisher<[StoredFood], Never>) {
-        cancellable = publisher.sink { foods in
-            NSLog("\(FoodViewModel.self) Updating foods from sink")
-            self.storedFoods = foods
+    @Published var name: String = "Unknown"
+    @Published var amounts: [Amount] = []
+    var selectedAmount: Amount = Amount()
+    @Published var selectedAmountId: UUID = UUID() {
+        didSet {
+            self.selectedAmount = food.amountsArray.first { $0.id == self.selectedAmountId }?.amount ?? Amount()
+            self.uiCalories = String(self.selectedAmount.macros.calories)
+            self.uiFat = String(self.selectedAmount.macros.fat)
+            self.uiCarbs = String(self.selectedAmount.macros.carbohydrates)
+            self.uiProtein = String(self.selectedAmount.macros.protein)
         }
     }
     
-    public func renameFood(_ food: StoredFood, newName: String) {
-        FoodController.shared.renameFood(food, newName: newName)
+    @Published var uiCalories: String = "Unset Calories"
+    @Published var uiFat: String = "Unset Fat"
+    @Published var uiCarbs: String = "Unset Carbohydrates"
+    @Published var uiProtein: String = "Unset Protein"
+    
+    public init(_ food: StoredFood, foodController: FoodController){
+        self.food = food
+        self.foodController = foodController
+        
+        let publisher: AnyPublisher<[StoredFood], Never> = foodController.foods.eraseToAnyPublisher()
+        cancellable = publisher.sink { foods in
+            NSLog("\(FoodListViewModel.self) Updating foods sink")
+            if let food = foods.first(where: { $0.id == food.id }) {
+                self.food = food
+            }
+        }
     }
-
 }

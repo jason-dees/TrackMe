@@ -8,16 +8,18 @@
 import Foundation
 
 public struct Amount {
+    public var id: UUID
     public let measurement: Measurement
     public let macros: Macronutrients
     
-    public init(measurement: Measurement, macros: Macronutrients) {
+    public init(id: UUID, measurement: Measurement, macros: Macronutrients) {
+        self.id = id
         self.measurement = measurement
         self.macros = macros
     }
     
     public init() {
-        self.init(measurement: Measurement.defaultValue, macros: Macronutrients())
+        self.init(id: UUID(), measurement: Measurement.defaultValue, macros: Macronutrients())
     }
 }
 
@@ -59,6 +61,22 @@ extension Measurement { // a measurement has macros, macros don't have a measure
     public static var defaultValue: Measurement {
         get {
             .each(-1.0)
+        }
+    }
+    public var unit: String {
+        switch self {
+        case .cups(_):
+            return "cups"
+        case .grams(_):
+            return "grams"
+        case .each(_):
+            return "each"
+        case .liters(_):
+            return "liters"
+        case .tbsp(_):
+            return "tbsp"
+        case .tsp(_):
+            return "tsp"
         }
     }
 }
