@@ -26,10 +26,10 @@ class FoodViewModel: ObservableObject {
     @Published var selectedAmountId: UUID = UUID() {
         didSet {
             self.selectedAmount = food.amountsArray.first { $0.id == self.selectedAmountId }?.amount ?? Amount()
-            self.uiCalories = String(self.selectedAmount.macros.calories)
-            self.uiFat = String(self.selectedAmount.macros.fat)
-            self.uiCarbs = String(self.selectedAmount.macros.carbohydrates)
-            self.uiProtein = String(self.selectedAmount.macros.protein)
+            self.uiCalories = NumberFormatter.formatString(self.selectedAmount.macros.calories)
+            self.uiFat = NumberFormatter.formatString(self.selectedAmount.macros.fat)
+            self.uiCarbs = NumberFormatter.formatString(self.selectedAmount.macros.carbohydrates)
+            self.uiProtein = NumberFormatter.formatString(self.selectedAmount.macros.protein)
         }
     }
     

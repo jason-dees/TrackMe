@@ -33,6 +33,7 @@
 		A336D71629579C1800E7A977 /* StoredIngredient+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A336D71529579C1800E7A977 /* StoredIngredient+Extensions.swift */; };
 		A336D71829590EA700E7A977 /* FoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A336D71729590EA700E7A977 /* FoodView.swift */; };
 		A336D71A295B2E5300E7A977 /* FoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A336D719295B2E5300E7A977 /* FoodViewModel.swift */; };
+		A364E9F0298B037100A243C5 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A364E9EF298B037100A243C5 /* NumberFormatter.swift */; };
 		A3E6A2F429481A8B00E0AA69 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6A2F329481A8B00E0AA69 /* Recipe.swift */; };
 		A3E6A2FA29481AE200E0AA69 /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6A2F929481AE200E0AA69 /* Amount.swift */; };
 		A3E6A2FC29481B0300E0AA69 /* Macronutrients.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6A2FB29481B0300E0AA69 /* Macronutrients.swift */; };
@@ -99,6 +100,7 @@
 		A336D71529579C1800E7A977 /* StoredIngredient+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StoredIngredient+Extensions.swift"; sourceTree = "<group>"; };
 		A336D71729590EA700E7A977 /* FoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodView.swift; sourceTree = "<group>"; };
 		A336D719295B2E5300E7A977 /* FoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewModel.swift; sourceTree = "<group>"; };
+		A364E9EF298B037100A243C5 /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 		A3E6A2F329481A8B00E0AA69 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		A3E6A2F929481AE200E0AA69 /* Amount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
 		A3E6A2FB29481B0300E0AA69 /* Macronutrients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macronutrients.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				A32C2EC129399F3D00421ED0 /* Date.swift */,
+				A364E9EF298B037100A243C5 /* NumberFormatter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				A3EBCB18294C111B00893D36 /* DayViewModel.swift in Sources */,
 				A3E6A30329495A2F00E0AA69 /* StoredMacronutrients+Extensions.swift in Sources */,
 				A32C2EAF292ED19D00421ED0 /* MealView.swift in Sources */,
+				A364E9F0298B037100A243C5 /* NumberFormatter.swift in Sources */,
 				A3E6A2FC29481B0300E0AA69 /* Macronutrients.swift in Sources */,
 				A32C2EB2292FA91A00421ED0 /* Food.swift in Sources */,
 				A336D71229578CEB00E7A977 /* FoodController.swift in Sources */,

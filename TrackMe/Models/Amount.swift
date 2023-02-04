@@ -79,6 +79,10 @@ extension Measurement { // a measurement has macros, macros don't have a measure
             return "tsp"
         }
     }
+    
+    public var formattedQuantity: String {
+        return NumberFormatter.formatString(quantity)
+    }
 }
 
 extension Measurement: Equatable {

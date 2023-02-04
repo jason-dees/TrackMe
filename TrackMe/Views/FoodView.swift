@@ -17,7 +17,7 @@ struct FoodView: View {
             TextField("Food Name", text: $viewModel.name).font(.title)
             Picker("Serving Sizes", selection: $viewModel.selectedAmountId) {
                 ForEach(viewModel.amounts, id: \.id) { amount in
-                    Text("\(amount.measurement.quantity) \(amount.measurement.unit)")
+                    Text("\(amount.measurement.formattedQuantity) \(amount.measurement.unit)")
                 }
             }
             Section("Nutrients") {
