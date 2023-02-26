@@ -31,7 +31,9 @@ extension Amount {
 
 //TODO: Move to Foundation's Measurement object now that I have a ViewModel + transform pattern
 
-public enum Measurement { // macros have a measurement associated with them
+public enum Measurement: CaseIterable {
+    public static var allCases: [Measurement] = [.cups(-1.0), .grams(-1.0), .each(-1.0), .liters(-1.0), .tbsp(-1.0), .tsp(-1.0)]
+    // macros have a measurement associated with them
     case cups(Double)
     case grams(Double)
     case each(Double)

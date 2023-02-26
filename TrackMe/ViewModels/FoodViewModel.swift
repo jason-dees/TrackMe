@@ -30,9 +30,13 @@ class FoodViewModel: ObservableObject {
             self.uiFat = NumberFormatter.formatString(self.selectedAmount.macros.fat)
             self.uiCarbs = NumberFormatter.formatString(self.selectedAmount.macros.carbohydrates)
             self.uiProtein = NumberFormatter.formatString(self.selectedAmount.macros.protein)
+            self.unitOfMeasure = selectedAmount.measurement.unit
+            self.quantity = selectedAmount.measurement.formattedQuantity
         }
     }
     
+    @Published var unitOfMeasure: String = "unset"
+    @Published var quantity: String = "0"
     @Published var uiCalories: String = "Unset Calories"
     @Published var uiFat: String = "Unset Fat"
     @Published var uiCarbs: String = "Unset Carbohydrates"
@@ -49,5 +53,14 @@ class FoodViewModel: ObservableObject {
                 self.food = food
             }
         }
+    }
+    
+    func saveNewValues() {
+        let amount: Amount? = amounts.first { $0.id == selectedAmountId }
+        let macros = Macronutrients(protein: Double(uiProtein) ?? 0.0,
+                                    carbohydrates: Double(uiCarbs) ?? 0.0,
+                                    fat: Double(uiFat) ?? 0.0,
+                                    calories: Double(uiCalories) ?? 0.0)
+        
     }
 }

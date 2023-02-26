@@ -10,6 +10,7 @@ import SwiftUI
 struct FoodView: View {
     
     @StateObject var viewModel: FoodViewModel
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         Form {
@@ -18,6 +19,17 @@ struct FoodView: View {
             Picker("Serving Sizes", selection: $viewModel.selectedAmountId) {
                 ForEach(viewModel.amounts, id: \.id) { amount in
                     Text("\(amount.measurement.formattedQuantity) \(amount.measurement.unit)")
+                }
+            }
+            Section("Amount") {
+                HStack {
+                    TextField("", text: $viewModel.quantity)
+                        .multilineTextAlignment(.trailing)
+                    Picker("", selection: $viewModel.unitOfMeasure){
+                        ForEach(Measurement.allCases, id: \.unit) { unit in
+                            Text("\(unit.unit)")
+                        }
+                    }
                 }
             }
             Section("Nutrients") {
@@ -64,8 +76,10 @@ struct FoodView: View {
             }.font(.headline)
             
             Button("Save") {
+                viewModel.saveNewValues()
             }.frame(alignment: .trailing)
             Button("Cancel") {
+                dismiss()
             }.frame(alignment: .bottom)
         }.border(.orange)
             .frame(maxWidth: .infinity)
