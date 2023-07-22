@@ -13,7 +13,7 @@ struct MealView: View {
     var body: some View {
         VStack {
             HStack {
-                Text(meal.name)
+                Text("\(meal.name): \(String(format: " %.0f", meal.macros.calories))")
                     .frame(maxWidth: .infinity, alignment: .leading)
                 Button(action: addFood) {
                     Image(systemName: "plus")
@@ -24,7 +24,6 @@ struct MealView: View {
             MacrosView(macros: meal.macros)
                 .font(.title3)
                 .fontWeight(.bold)
-                .frame(height: 90.0)
             Divider()
             ForEach(meal.eaten, id: \.self.id) { eaten in
                 EatenFoodView(eatenFood: eaten).onTapGesture {

@@ -14,7 +14,7 @@ struct EatenFoodView: View {
     var body: some View {
         VStack {
             HStack {
-                Text(eatenFood.name)
+                Text("\(eatenFood.name): \(String(format: " %.0f", eatenFood.macros.calories))")
                     .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(10)
 //                Button(action: removeEatenFood){
@@ -28,8 +28,6 @@ struct EatenFoodView: View {
 //                .padding(10)
             }
             .font(.headline)
-            MacrosView(macros: eatenFood.macros)
-                .frame(height: 50.0)
         }
     }
     
