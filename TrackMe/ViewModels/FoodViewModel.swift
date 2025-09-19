@@ -56,8 +56,8 @@ class FoodViewModel: ObservableObject {
     }
     
     func saveNewValues() {
-        let amount: Amount? = amounts.first { $0.id == selectedAmountId }
-        let macros = Macronutrients(protein: Double(uiProtein) ?? 0.0,
+        let _: Amount? = amounts.first { $0.id == selectedAmountId }
+        let _ = Macronutrients(protein: Double(uiProtein) ?? 0.0,
                                     carbohydrates: Double(uiCarbs) ?? 0.0,
                                     fat: Double(uiFat) ?? 0.0,
                                     calories: Double(uiCalories) ?? 0.0)

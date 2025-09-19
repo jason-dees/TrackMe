@@ -18,6 +18,7 @@ struct MainTabView: View {
                 .tabItem {
                     Label("Foods", systemImage: "carrot")
                 }
+            
             DayView(day: dayViewModel.today)
                 .badge(0)
                 .tabItem {
@@ -25,12 +26,6 @@ struct MainTabView: View {
                 }
         }
         .onAppear {
-            let apparence = UITabBarAppearance()
-            apparence.configureWithOpaqueBackground()
-            if #available(iOS 15.0, *) {
-                UITabBar.appearance().scrollEdgeAppearance = apparence
-                
-            }
         }
         
     }
